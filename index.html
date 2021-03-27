@@ -1,26 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blackjack</title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="scripts/blackjack.js"></script>
+	<title>BlackJack's Game</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatx:700">-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:700" rel="stylesheet">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" defer></script>
+    <script type="text/javascript" src="21game.js" defer></script>
+
 </head>
 <body>
+    <header>
+        <p class="title">PRESS START TO PLAY BLACKJACK!!</p>
+        <div class="console">
+            <a href="javascript:void(0);" id="start">Start!</a>
+            <a href="javascript:void(0);" id="reset">Reset!</a>
+        </div>
+    </header>
+    <div class="centered">
 
-    <h3>Player Cards:</h3>
-    <div id="player-hand"></div>
-    <h3>player hand value:</h3>
-    <div id="player-hand-value"></div>
-    <h3>dealer cards:</h3>
-    <div id="dealer-hand"></div>
-    <h3>dealer hand value:</h3>
-    <div id="dealer-hand-value"></div>
-    <div id="game-status"></div>
-    <button onClick="hit()">Hit!</button>
-    <button onClick="stand()">Stand</button>
-    
+        <div class="results">
+            <div class="dealer">
+                <h1>Dealer's Hand:</h1>
+                <!--inline style to keep Player's Hand in the middle of the table-->
+                <div class="dealers_cards" style="height:96px">
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="score"></div>
+            </div>
+            <div class="player">
+                <h1>Player's Hand:</h1>
+                <div class="players_cards">
+                    <ul>
+
+                    </ul>
+                </div>
+                <!--<div class="score"></div>-->
+
+            </div>
+        </div>
+    </div>
+    <div class="pscore"></div>
+    <div class="gameConsole" style="visibility: hidden;">
+        <a href="javascript:void(0);" id="hit">Hit!</a>
+        <a href="javascript:void(0);" id="stand">Stand</a>
+    </div>
+     <footer>
+        <p>BlackJack Game written in JavaScript. Still in development...</p>
+     </footer>
 </body>
 </html>
