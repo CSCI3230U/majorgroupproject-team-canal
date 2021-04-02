@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>BlackJack's Game</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 	<link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Merriweather:700" rel="stylesheet">
@@ -10,17 +11,25 @@
 </head>
 <body>
     <header>
-        <p class="title">PRESS START TO PLAY!</p>
+        <section class="hero is-small is-primary">
+            <div class="hero-body">
+              <p class="title">
+                PRESS START TO PLAY!
+              </p>
+            </div>
+          </section>
+
         <div class="console">
-            <a href="javascript:void(0);" id="start">Start!</a>
-            <a href="javascript:void(0);" id="reset">Reset!</a>
+            
+            <a href="javascript:void(0);" id="start" class="button is-danger" >Start!</a>
+            <a href="javascript:void(0);" id="reset" class="button is-danger">Reset!</a>
         </div>
     </header>
     <div class="centered">
 
         <div class="results">
             <div class="dealer">
-                <h1>Dealer's Hand:</h1>
+                <h1>DEALER'S HAND</h1>
                 <div class="dealers_cards" style="height:96px">
                     <ul>
 
@@ -29,7 +38,7 @@
                 <div class="score"></div>
             </div>
             <div class="player">
-                <h1>Player's Hand:</h1>
+                <h1>PLAYER'S HAND</h1>
                 <div class="players_cards">
                     <ul>
 
@@ -37,15 +46,29 @@
                 </div>
 
             </div>
+            <a href="javascript:void(0);" id="hit">HIT!</a>
+            <a href="javascript:void(0);" id="stand">STAND</a>
         </div>
+        
+
     </div>
-    <div class="pscore"></div>
-    <div class="gameConsole" style="visibility: hidden;">
+    <div>
+        <h1>Test</h1>
         <a href="javascript:void(0);" id="hit">Hit!</a>
         <a href="javascript:void(0);" id="stand">Stand</a>
+
     </div>
-     <footer>
-        <p>CANAL. Inc.</p>
-     </footer>
+
+    <div class="pscore"></div><!--for score board-->
+    
+     
+     <footer class="footer">
+          <p>
+            <strong>CANAL. Inc.</strong>
+            <br>
+            <a href="https://github.com/CSCI3230U/majorgroupproject-team-canal">Link to our github project</a>
+          </p>
+        
+      </footer>
 </body>
 </html>
