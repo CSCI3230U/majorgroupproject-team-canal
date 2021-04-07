@@ -125,12 +125,12 @@ header{
     color: purple;
 }
 
-.pscore{
+.pscore{ /*css for score board */
     position: relative;
     bottom: 15px;
     background-color: black;
-    height: 30px;
-    width: 150px;
+    height: 50px;
+    width: 170px;
     margin: auto;
     bottom: 140px;
     border-radius: 4px;
@@ -194,20 +194,26 @@ footer{
 
 }
 
-#hit{
+#hit{ /*hit button*/
     font-size: 25px;
     background-color:wheat;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
-#stand{
+#stand{/*stand button*/
     font-size: 25px;
     background-color: wheat;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
+}
 
-
+#showScore{ /*css for score board */
+    text-align: center;
+    text-decoration: underline;
+    font-size: large;
+    font-weight: bold;
+    color: aliceblue;
 }
 
 
