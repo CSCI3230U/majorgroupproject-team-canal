@@ -45,6 +45,12 @@ window.onload=function(){
             card_number.setAttribute("width","80px");
             player_cards.appendChild(card_number);
 
+            // var dealer_cards=document.getElementById("dealer_cards");
+            // var dealer_card_number=document.createElement("img");
+            // dealer_card_number.src="image/back.jpg";
+            // dealer_card_number.setAttribute("width","80px");
+            // dealer_cards.appendChild(dealer_card_number);
+
             
             if(3<=number&&number<=20){
                 score=score+10;
@@ -101,60 +107,75 @@ window.onload=function(){
     }
 
     standbutton.onclick=function(){
-        var dealer_cards=document.getElementById("dealer_cards");
-        removeChildren(dealer_cards);
+        if(isGameOver == false){
+            var dealer_cards=document.getElementById("dealer_cards");
+            removeChildren(dealer_cards);
 
-        var number2=generaterandomnumber();
-            while(true){
-                if(number_array2.indexOf(number2)==-1){
-                    number_array2.push(number2);
-                    break;
-                }
-                else{
-                    number2=generaterandomnumber();
-                }
+            while(dealerScore<17){
+                var number2=generaterandomnumber();
+                    while(true){
+                        if(number_array2.indexOf(number2)==-1){
+                            number_array2.push(number2);
+                            break;
+                        }
+                        else{
+                            number2=generaterandomnumber();
+                        }
+                    }
+
+                    if(3<=number2&&number2<=20){
+                        dealerScore=dealerScore+10;
+                    }
+                    else if(number2<4 || number2 == 52){
+                        dealerScore=dealerScore+11
+                    }
+                    else if(20<=number2&&number2<=23){
+                        dealerScore=dealerScore+9
+                    }
+                    else if(24<=number2&&number2<=27){
+                        dealerScore=dealerScore+8
+                    }
+                    else if(28<=number2&&number2<=31){
+                        dealerScore=dealerScore+7
+                    }
+                    else if(32<=number2&&number2<=35){
+                        dealerScore=dealerScore+6
+                    }
+                    else if(36<=number2&&number2<=39){
+                        dealerScore=dealerScore+5
+                    }
+                    else if(40<=number2&&number2<=43){
+                        dealerScore=dealerScore+4
+                    }
+                    else if(44<=number2&&number2<=47){
+                        dealerScore=dealerScore+3
+                    }
+                    else if(48<=number2&&number2<=51){
+                        dealerScore=dealerScore+2
+                    }
+                    else{
+                        dealerScore=dealerScore;
+                    }
             }
 
-            if(3<=number2&&number2<=20){
-                dealerScore=dealerScore+10;
-            }
-            else if(number2<4 || number2 == 52){
-                dealerScore=dealerScore+11
-            }
-            else if(20<=number2&&number2<=23){
-                dealerScore=dealerScore+9
-            }
-            else if(24<=number2&&number2<=27){
-                dealerScore=dealerScore+8
-            }
-            else if(28<=number2&&number2<=31){
-                dealerScore=dealerScore+7
-            }
-            else if(32<=number2&&number2<=35){
-                dealerScore=dealerScore+6
-            }
-            else if(36<=number2&&number2<=39){
-                dealerScore=dealerScore+5
-            }
-            else if(40<=number2&&number2<=43){
-                dealerScore=dealerScore+4
-            }
-            else if(44<=number2&&number2<=47){
-                dealerScore=dealerScore+3
-            }
-            else if(48<=number2&&number2<=51){
-                dealerScore=dealerScore+2
-            }
-            else{
-                dealerScore=dealerScore;
+            for (let i = 0; i < number_array2.length; i++){
+                console.log(number_array2[i]);
+                var dealer_card_number=document.createElement("img");
+                dealer_card_number.src="image/card%20("+number_array2[i]+").jpg";
+                dealer_card_number.setAttribute("width","80px");
+                dealer_cards.appendChild(dealer_card_number);
             }
 
-        for (let i = 0; i < number_array2.length; i++){
-            console.log(number_array2[i]);
-            var dealer_card_number=document.createElement("img");
-            dealer_card_number.src="image/card%20("+number_array2[i]+").jpg";
-            dealer_card_number.setAttribute("width","80px");
-            dealer_cards.appendChild(dealer_card_number);
+            console.log("Dealer score is: " + dealerScore);
+            console.log("Player score is: " + score);
+
+            if ((dealerScore > score) && (dealerScore<=21)){
+                score1.textContent = "DEALER WINS!";
+            }else if(dealerScore == score){
+                score1.textContent = "TIE GAME!";
+            }else{
+                score1.textContent = "PLAYER WINS!";
+            }
         }
     
     }
@@ -168,6 +189,8 @@ window.onload=function(){
         number_array2 = [];
         let score1 = document.getElementById("score1");
         score = 0;
+        dealerScore = 0;
+        isGameOver = false;
         score1.textContent = "";
     }
 
