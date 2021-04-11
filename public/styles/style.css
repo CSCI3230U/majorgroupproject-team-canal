@@ -136,6 +136,7 @@ header{
     border-radius: 4px;
     -moz-box-shadow: 0px 9px 25px rgba(0,0,0,.7);
     box-shadow: 0px 9px 25px rgba(0,0,0,.7);
+    visibility: hidden;
 
 }
 
@@ -175,10 +176,12 @@ header{
 
 #hit {
     float: left;
+    visibility: hidden;
 }
 
 #stand {
     float: right;
+    visibility: hidden;
 }
 
 footer{
