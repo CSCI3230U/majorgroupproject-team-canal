@@ -192,13 +192,42 @@ header{
     transition: all .1s ease;
 }
 
+#hit{ /*hit button*/
+    font-size: 30px;
+    background-color:wheat;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
-
-#hit {
-    float: left;
-    visibility: hidden;
 }
 
+#stand{/*stand button*/
+    font-size: 30px;
+    background-color: wheat;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+
+#hit, #stand {
+    float: left;
+    visibility: hidden;
+    border-radius: 3em;
+    width: 120px;
+    height: 70px;
+    border-color:white;
+    color: #2ecc71;
+    background-image: linear-gradient(to bottom, transparent 50%, #2ecc71 50%);
+    background-size: 210%;
+    -webkit-transition: background 300ms ease-in-out, color 150ms ease-in-out;
+}
+#hit:hover{
+    color:black;
+    background-position: 0 100%;
+}
+
+#stand:hover{
+    color:black;
+    background-position: 0 100%;
+}
 #stand {
     float: right;
     visibility: hidden;
@@ -214,20 +243,6 @@ footer{
 }
 .footer {
     padding-top: 10px;
-
-}
-
-#hit{ /*hit button*/
-    font-size: 25px;
-    background-color:wheat;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-}
-
-#stand{/*stand button*/
-    font-size: 25px;
-    background-color: wheat;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
