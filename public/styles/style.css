@@ -2,8 +2,7 @@
 body {
     background-color: darkgreen;
     /*background-image: url("https://www.christine-logan.com/applications/war-game/img/background.png");*/
-    background-image: url("https://images.creativemarket.com/0.1.0/ps/6006026/1820/1213/m1/fpnw/wm1/w9eumfb8qsimmn1mog6jk17imeo4cjbbzcyzeb8x9yclgdequr6mtxkfdbqdqqap-.jpg?1551865304&s=b47db0688d7074da424f8b98dc02b24e");
-    background-repeat: no-repeat;
+    /*background-image: url("https://images.creativemarket.com/0.1.0/ps/6006026/1820/1213/m1/fpnw/wm1/w9eumfb8qsimmn1mog6jk17imeo4cjbbzcyzeb8x9yclgdequr6mtxkfdbqdqqap-.jpg?1551865304&s=b47db0688d7074da424f8b98dc02b24e");*/
     margin: 0 0 40px;
     padding: 0px;
 }
@@ -136,7 +135,7 @@ header{
 .pscore{ /*css for score board */
     position: relative;
     bottom: 15px;
-    background-color: black;
+    background-color:#000000;
     height: 60px;
     width: 200px;
     margin: auto;
