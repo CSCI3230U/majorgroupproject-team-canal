@@ -1,10 +1,11 @@
 
 body {
-    background-color: darkgreen;
+    
     /*background-image: url("https://www.christine-logan.com/applications/war-game/img/background.png");*/
     /*background-image: url("https://images.creativemarket.com/0.1.0/ps/6006026/1820/1213/m1/fpnw/wm1/w9eumfb8qsimmn1mog6jk17imeo4cjbbzcyzeb8x9yclgdequr6mtxkfdbqdqqap-.jpg?1551865304&s=b47db0688d7074da424f8b98dc02b24e");*/
     margin: 0 0 40px;
     padding: 0px;
+    background-color: darkgreen;
 }
 
 header{
@@ -201,8 +202,8 @@ header{
     width: 110px;
     height: 60px;
     border-color:white;
-    color: #2ecc71;
-    background-image: linear-gradient(to bottom, transparent 50%, #2ecc71 50%);
+    color: grey;
+    background-image: linear-gradient(to bottom, transparent 50%, gold 50%);
     background-size: 210%;
     -webkit-transition: background 300ms ease-in-out, color 150ms ease-in-out;
 }
@@ -221,9 +222,8 @@ header{
 }
 
 footer{
-    position: fixed;
     bottom: 0;
-    height: 10px;
+    height: 420px;
     width: 100%;
     padding-top: 10px;
 
@@ -232,6 +232,7 @@ footer{
     padding-top: 10px;
     /*background-image: url("https://www.animatedimages.org/data/media/633/animated-playing-card-image-0071.gif");*/
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/97/Cards_2.gif");
+    
 
 }
 
