@@ -1,5 +1,8 @@
 window.onload=function(){
 
+    let test = [3, 51, 23,17];
+    let testCount = 0;
+    let start = 0;
 
     var hitbutton=document.getElementById("hit");
     var standbutton=document.getElementById("stand");
@@ -11,6 +14,7 @@ window.onload=function(){
     var dealer_back_Card;
     var number_array=[];
     var number_array2=[];
+    var dealerCards = [];
     var number2;
     var isGameOver = false;
     var isHit = false;
@@ -21,31 +25,34 @@ window.onload=function(){
 
     
     startbutton.onclick=function(){
-        $('#hit').css("visibility","visible");
-        $('#stand').css("visibility","visible");
-        $('.score').css("visibility","visible");
-        number2=generaterandomnumber();
-        while(true){
-            if(number_array2.indexOf(number2)==-1){
-                number_array2.push(number2);
-                break;
+        if (start == 0){
+            $('#hit').css("visibility","visible");
+            $('#stand').css("visibility","visible");
+            $('.score').css("visibility","visible");
+            number2=generaterandomnumber();
+            while(true){
+                if(number_array2.indexOf(number2)==-1){
+                    number_array2.push(number2);
+                    dealerCards.push(number2);
+                    break;
+                }
+                else{
+                    number2=generaterandomnumber();
+                }
             }
-            else{
-                number2=generaterandomnumber();
-            }
+            var dealer_cards=document.getElementById("dealer_cards");
+                dealer_back_Card=document.createElement("img");
+                dealer_back_Card.src="image/back.jpg";
+                dealer_back_Card.setAttribute("width","80px");
+                dealer_cards.appendChild( dealer_back_Card);
+                var dealer_card_number=document.createElement("img");
+                dealer_card_number.src="image/card%20("+number2+").jpg";
+                dealer_card_number.setAttribute("width","80px");
+                dealer_cards.appendChild(dealer_card_number);
+                dealerScore=numbertoscore(number2,dealerScore, number_array2);
+                score2.textContent=dealerScore;
+            start = 1;
         }
-        var dealer_cards=document.getElementById("dealer_cards");
-             dealer_back_Card=document.createElement("img");
-             dealer_back_Card.src="image/back.jpg";
-             dealer_back_Card.setAttribute("width","80px");
-             dealer_cards.appendChild( dealer_back_Card);
-             var dealer_card_number=document.createElement("img");
-             dealer_card_number.src="image/card%20("+number2+").jpg";
-             dealer_card_number.setAttribute("width","80px");
-             dealer_cards.appendChild(dealer_card_number);
-             dealerScore=numbertoscore(number2,dealerScore);
-             score2.textContent=dealerScore;
-             
     }
 
     hitbutton.onclick=function(){
@@ -56,6 +63,7 @@ window.onload=function(){
                     while(true){
                         if(number_array2.indexOf(number2)==-1){
                             number_array2.push(number2);
+                            dealerCards.push(number2);
                             break;
                         }
                         else{
@@ -63,11 +71,13 @@ window.onload=function(){
                         }
                     }
 
-                    dealerScore = numbertoscore(number2,dealerScore);
+                    dealerScore = numbertoscore(number2,dealerScore, number_array2);
             }
 
 
-            var number=generaterandomnumber();
+            var number=0;
+            number=test[testCount];
+            number=generaterandomnumber();
            
             while(true){
                 if(number_array.indexOf(number)==-1){
@@ -75,7 +85,9 @@ window.onload=function(){
                     break;
                 }
                 else{
+                    number=test[testCount];
                     number=generaterandomnumber();
+                    
                 }
                 
             }
@@ -84,7 +96,7 @@ window.onload=function(){
             card_number.src="image/card%20("+number+").jpg";
             card_number.setAttribute("width","80px");
             player_cards.appendChild(card_number);
-            score=numbertoscore(number,score);
+            score=numbertoscore(number,score, number_array);
 
             //check is the score of the player is not greater than 21. if true then print that the play bust
             //else keep the game going
@@ -97,11 +109,11 @@ window.onload=function(){
                 score1.textContent = score;
             }
 
-            console.log(player_cards.children[0].src);
-            console.log(player_cards.children[0].src[36]);
-            console.log(player_cards.children[0].src[37]);
+            // console.log(player_cards.children[0].src);
+            // console.log(player_cards.children[0].src[36]);
+            // console.log(player_cards.children[0].src[37]);
 
-            console.log(number_array);
+            // console.log(number_array);
         }
 
         isHit = true;
@@ -123,21 +135,22 @@ window.onload=function(){
                         console.log(number2);
                         if(number_array2.indexOf(number2)==-1){
                             number_array2.push(number2);
+                            dealerCards.push(number2);
                             break;
                         }
                         else{
                             number2=generaterandomnumber();
                         }
                     }
-                    dealerScore=numbertoscore(number2,dealerScore);
+                    dealerScore=numbertoscore(number2,dealerScore, number_array2);
                     
             }
             score2.textContent=dealerScore;
             
-            for (let i = 0; i < number_array2.length; i++){
+            for (let i = 0; i < dealerCards.length; i++){
                 console.log(number_array2[i]);
                 var dealer_card_number=document.createElement("img");
-                dealer_card_number.src="image/card%20("+number_array2[i]+").jpg";
+                dealer_card_number.src="image/card%20("+dealerCards[i]+").jpg";
                 dealer_card_number.setAttribute("width","80px");
                 dealer_cards.appendChild(dealer_card_number);
             }
@@ -157,41 +170,45 @@ window.onload=function(){
     }
 
     resetbutton.onclick=function(){
-        var dealer_cards=document.getElementById("dealer_cards");
-        removeChildren(dealer_cards);
-        var player_cards=document.getElementById("player_cards");
-        removeChildren(player_cards);
-        number_array = [];
-        number_array2 = [];
-        dealerScore=0;
-        number2=generaterandomnumber();
-        while(true){
-            if(number_array2.indexOf(number2)==-1){
-                number_array2.push(number2);
-                break;
+        if (start == 1){
+            var dealer_cards=document.getElementById("dealer_cards");
+            removeChildren(dealer_cards);
+            var player_cards=document.getElementById("player_cards");
+            removeChildren(player_cards);
+            number_array = [];
+            number_array2 = [];
+            dealerCards = [];
+            dealerScore=0;
+            number2=generaterandomnumber();
+            while(true){
+                if(number_array2.indexOf(number2)==-1){
+                    number_array2.push(number2);
+                    dealerCards.push(number2);
+                    break;
+                }
+                else{
+                    number2=generaterandomnumber();
+                }
             }
-            else{
-                number2=generaterandomnumber();
-            }
-        }
 
-        dealerScore=numbertoscore(number2,dealerScore);
-        score2.textContent=dealerScore;
-        var dealer_cards=document.getElementById("dealer_cards");
-             var dealer_card_number=document.createElement("img");
-             dealer_card_number.src="image/back.jpg";
-             dealer_card_number.setAttribute("width","80px");
-             dealer_cards.appendChild(dealer_card_number);
-             var dealer_card_number=document.createElement("img");
-             dealer_card_number.src="image/card%20("+number2+").jpg";
-             dealer_card_number.setAttribute("width","80px");
-             dealer_cards.appendChild(dealer_card_number);
-        let score1 = document.getElementById("score1");
-        score = 0;
-        
-        isGameOver = false;
-        isHit = false;
-        score1.textContent = "";
+            dealerScore=numbertoscore(number2,dealerScore, number_array2);
+            score2.textContent=dealerScore;
+            var dealer_cards=document.getElementById("dealer_cards");
+                var dealer_card_number=document.createElement("img");
+                dealer_card_number.src="image/back.jpg";
+                dealer_card_number.setAttribute("width","80px");
+                dealer_cards.appendChild(dealer_card_number);
+                var dealer_card_number=document.createElement("img");
+                dealer_card_number.src="image/card%20("+number2+").jpg";
+                dealer_card_number.setAttribute("width","80px");
+                dealer_cards.appendChild(dealer_card_number);
+            let score1 = document.getElementById("score1");
+            score = 0;
+            
+            isGameOver = false;
+            isHit = false;
+            score1.textContent = "";
+        }
     }
 
 }
@@ -201,12 +218,12 @@ function generaterandomnumber(){
     return random_number;
 }
 //this is the update function that assigns the value of the new score 
-function numbertoscore(number,score){
-    if(3<=number&&number<=20){
+function numbertoscore(number,score, cards){
+    if(4<=number&&number<=19){
         score=score+10;
     }
     else if(number<4 || number == 52){
-        score=score+11
+        score = score + 11;
     }
     else if(20<=number&&number<=23){
         score=score+9
@@ -235,6 +252,18 @@ function numbertoscore(number,score){
     else{
         score=score;
     }
+
+    if (score > 21){
+        for (let i = 0; i < cards.length; i++){
+            if (score > 21){
+                if (cards[i]<4 || cards[i] == 52){
+                    cards[i] = 100;
+                    score = score - 10;
+                }
+            }
+        }
+    }
+
     return score;
 }
 function removeChildren(parent) {
