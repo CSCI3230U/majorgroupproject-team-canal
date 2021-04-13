@@ -13,6 +13,7 @@ window.onload=function(){
     var number_array2=[];
     var number2;
     var isGameOver = false;
+    var isHit = false;
 
     let score1 = document.getElementById("score1");
     let score2 = document.getElementById("score2");
@@ -49,6 +50,23 @@ window.onload=function(){
 
     hitbutton.onclick=function(){
         if(isGameOver == false){
+
+            if(isHit == false){
+                var number2=generaterandomnumber();
+                    while(true){
+                        if(number_array2.indexOf(number2)==-1){
+                            number_array2.push(number2);
+                            break;
+                        }
+                        else{
+                            number2=generaterandomnumber();
+                        }
+                    }
+
+                    dealerScore = numbertoscore(number2,dealerScore);
+            }
+
+
             var number=generaterandomnumber();
            
             while(true){
@@ -85,6 +103,8 @@ window.onload=function(){
 
             console.log(number_array);
         }
+
+        isHit = true;
 
     }
 
@@ -170,6 +190,7 @@ window.onload=function(){
         score = 0;
         
         isGameOver = false;
+        isHit = false;
         score1.textContent = "";
     }
 
@@ -179,7 +200,7 @@ function generaterandomnumber(){
     var random_number=Math.floor((Math.random() * 52) + 1);
     return random_number;
 }
-
+//this is the update function that assigns the value of the new score 
 function numbertoscore(number,score){
     if(3<=number&&number<=20){
         score=score+10;
@@ -221,3 +242,5 @@ function removeChildren(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
+
+
