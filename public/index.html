@@ -27,42 +27,48 @@
             
             <!--<a href="javascript:void(0);" id="start" class="button is-warning" >Start!</a>-->
             <!--<a href="javascript:void(0);" id="reset" class="button is-warning">Reset!</a>-->
-            <button id="start" class="button is-danger">START!</button>
-            <button id="reset" class="button is-danger">RESET!</button>
+            <button id="start" class="button is-danger">START</button>
+            <button id="reset" class="button is-danger">RESET</button>
 
         </div>
     </header>
     <div class="centered">
 
-        <div class="results">
+        <div class="results"></div>
             <div class="dealer">
-                <h1 id="dealer">DEALER'S HAND</h1>
-                <div class="dealers_cards" style="height:96px">
+                <h1 id="dealer_hand">DEALER'S HAND</h1>
+                <div class="dealers_cards">
                     <div class='field-body' id='dealer_cards'>
                       
                     </div>
                 </div>
-                <div class="score"></div>
+                
             </div>
+            <div class="score" id="dealer_score_board">
+                <p id = "score2"></p>
+                <p id ="dealer_score">Dealer</p>
+                    
+            </div>
+            <button id="hit">HIT!</button>
+            <button id="stand">STAND</button>
             <div class="player">
-                <h1 id="player">PLAYER'S HAND</h1>
+                
                 <div class="players_cards">
                    <div class='field-body' id='player_cards'>
                       
                    </div>
                 </div>
-
+                <h1 id="player_hand" >PLAYER'S HAND</h1>
             </div>
-            <button id="hit">HIT!</button>
-            <button id="stand">STAND</button>
         </div>
         
 
     </div>
     
 
-    <div class="pscore">
+    <div class="score">
         <p id = "score1"></p>
+        <p id ="player_score">Player</p>
     </div>
      
      <footer class="footer">
