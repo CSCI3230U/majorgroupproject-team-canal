@@ -159,6 +159,8 @@ header{
 #score1{
     padding-top: 15px;
     text-align: center;
+    color: gold;
+    font-size: medium;
 }
 #player_score{
    position:absolute;
@@ -173,12 +175,11 @@ header{
  #score2{
      padding-top:15px;
      text-align: center;
+     color: gold;
+     font-size: medium;
  }
-#dealer_score_board{
-    position:absolute;
-    left:875px;
-    top:25px
-}
+
+
 
 .gameConsole{
     position: relative;

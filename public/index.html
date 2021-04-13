@@ -34,32 +34,32 @@
     </header>
     <div class="centered">
 
-        <div class="results"></div>
+        <div class="results">
             <div class="dealer">
-                <h1 id="dealer_hand">DEALER'S HAND</h1>
-                <div class="dealers_cards">
+                <h1 id="dealer">DEALER'S HAND</h1>
+                <div class="dealers_cards" style="height:96px">
                     <div class='field-body' id='dealer_cards'>
                       
                     </div>
                 </div>
-                
+                <div class="score" id="dealer_score_board">
+                    <p id = "score2"></p>
+                    <p id ="dealer_score">Dealer</p>
+                        
+                </div>
             </div>
-            <div class="score" id="dealer_score_board">
-                <p id = "score2"></p>
-                <p id ="dealer_score">Dealer</p>
-                    
-            </div>
-            <button id="hit">HIT!</button>
-            <button id="stand">STAND</button>
+            
             <div class="player">
-                
+                <h1 id="player">PLAYER'S HAND</h1>
                 <div class="players_cards">
                    <div class='field-body' id='player_cards'>
                       
                    </div>
                 </div>
-                <h1 id="player_hand" >PLAYER'S HAND</h1>
+
             </div>
+            <button id="hit">HIT!</button>
+            <button id="stand">STAND</button>
         </div>
         
 
