@@ -13,6 +13,7 @@ window.onload=function(){
     var number_array2=[];
 
     var isGameOver = false;
+    var isHit = false;
 
     let score1 = document.getElementById("score1");
 
@@ -26,6 +27,29 @@ window.onload=function(){
 
     hitbutton.onclick=function(){
         if(isGameOver == false){
+
+            if(isHit == false){
+                var number2=generaterandomnumber();
+                    while(true){
+                        if(number_array2.indexOf(number2)==-1){
+                            number_array2.push(number2);
+                            break;
+                        }
+                        else{
+                            number2=generaterandomnumber();
+                        }
+                    }
+
+                    dealerScore = updateScore(number2,dealerScore);
+            
+
+                    var dealer_card_number=document.createElement("img");
+                    dealer_card_number.src="image/card%20("+number_array2[0]+").jpg";
+                    dealer_card_number.setAttribute("width","80px");
+                    dealer_cards.appendChild(dealer_card_number);
+            }
+
+
             var number=generaterandomnumber();
             while(true){
                 if(number_array.indexOf(number)==-1){
@@ -52,39 +76,7 @@ window.onload=function(){
             // dealer_cards.appendChild(dealer_card_number);
 
             
-            if(3<=number&&number<=20){
-                score=score+10;
-            }
-            else if(number<4 || number == 52){
-                score=score+11
-            }
-            else if(20<=number&&number<=23){
-                score=score+9
-            }
-            else if(24<=number&&number<=27){
-                score=score+8
-            }
-            else if(28<=number&&number<=31){
-                score=score+7
-            }
-            else if(32<=number&&number<=35){
-                score=score+6
-            }
-            else if(36<=number&&number<=39){
-                score=score+5
-            }
-            else if(40<=number&&number<=43){
-                score=score+4
-            }
-            else if(44<=number&&number<=47){
-                score=score+3
-            }
-            else if(48<=number&&number<=51){
-                score=score+2
-            }
-            else{
-                score=score;
-            }
+            score = updateScore(number,score);
 
             //check is the score of the player is not greater than 21. if true then print that the play bust
             //else keep the game going
@@ -103,6 +95,8 @@ window.onload=function(){
 
             console.log(number_array);
         }
+
+        isHit = true;
 
     }
 
@@ -123,39 +117,7 @@ window.onload=function(){
                         }
                     }
 
-                    if(3<=number2&&number2<=20){
-                        dealerScore=dealerScore+10;
-                    }
-                    else if(number2<4 || number2 == 52){
-                        dealerScore=dealerScore+11
-                    }
-                    else if(20<=number2&&number2<=23){
-                        dealerScore=dealerScore+9
-                    }
-                    else if(24<=number2&&number2<=27){
-                        dealerScore=dealerScore+8
-                    }
-                    else if(28<=number2&&number2<=31){
-                        dealerScore=dealerScore+7
-                    }
-                    else if(32<=number2&&number2<=35){
-                        dealerScore=dealerScore+6
-                    }
-                    else if(36<=number2&&number2<=39){
-                        dealerScore=dealerScore+5
-                    }
-                    else if(40<=number2&&number2<=43){
-                        dealerScore=dealerScore+4
-                    }
-                    else if(44<=number2&&number2<=47){
-                        dealerScore=dealerScore+3
-                    }
-                    else if(48<=number2&&number2<=51){
-                        dealerScore=dealerScore+2
-                    }
-                    else{
-                        dealerScore=dealerScore;
-                    }
+                    dealerScore = updateScore(number2,dealerScore);
             }
 
             for (let i = 0; i < number_array2.length; i++){
@@ -191,6 +153,7 @@ window.onload=function(){
         score = 0;
         dealerScore = 0;
         isGameOver = false;
+        isHit = false;
         score1.textContent = "";
     }
 
@@ -206,4 +169,43 @@ function removeChildren(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+}
+
+//this is the update function that assigns the value of the new score 
+function updateScore(num,count) {
+    if(3<=num&&num<=20){
+        count=count+10;
+    }
+    else if(num<4 || num == 52){
+        count=count+11
+    }
+    else if(20<=num&&num<=23){
+        count=count+9
+    }
+    else if(24<=num&&num<=27){
+        count=count+8
+    }
+    else if(28<=num&&num<=31){
+        count=count+7
+    }
+    else if(32<=num&&num<=35){
+        count=count+6
+    }
+    else if(36<=num&&num<=39){
+        count=count+5
+    }
+    else if(40<=num&&num<=43){
+        count=count+4
+    }
+    else if(44<=num&&num<=47){
+        count=count+3
+    }
+    else if(48<=num&&num<=51){
+        count=count+2
+    }
+    else{
+        count=count;
+    }
+
+    return count;
 }
