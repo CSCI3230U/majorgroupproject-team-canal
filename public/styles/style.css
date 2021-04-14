@@ -23,6 +23,19 @@ header{
     margin: 10px auto;
 }
 
+.dataSection{
+position: relative;
+    width: 150px;
+    color: red;
+    margin: 10px auto;
+}
+
+#chart{
+    position: relative;
+        width: 850px;
+        margin: 10px auto;
+    }
+
 .console a{
     /*position: relative;
     text-decoration: none;*/
@@ -40,13 +53,19 @@ header{
     float: left;
 }
 
+
 #reset{
     border-color: #f1c40f;
     color: #fff;
     float: right;
 }
 
-#start, #reset{
+#data{
+    border-color: #f1c40f;
+    color: #fff;
+}
+
+#start, #reset,#data {
     
     font-weight: bold;
     font-size: 20px;
@@ -65,6 +84,10 @@ header{
 }
 
 #reset:hover{
+    background-position: 0;
+}
+
+#data:hover{
     background-position: 0;
 }
 
@@ -298,6 +321,22 @@ footer{
     font-family: 'Courier New', Courier, monospace;
     font-size: larger;
     font-weight: bold;
+}
+
+.navbar-brand {
+    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow:auto;
+  background-color: #333;
+}
+
+.navbar-menu {
+    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow:auto;
+  background-color: #333;
 }
 
 

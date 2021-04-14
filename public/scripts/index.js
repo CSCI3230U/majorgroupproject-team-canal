@@ -1,3 +1,6 @@
+//golbal variables 
+var resultsData = [];
+
 window.onload=function(){
 
     let test = [3, 51, 23,17];
@@ -8,6 +11,7 @@ window.onload=function(){
     var standbutton=document.getElementById("stand");
     var resetbutton=document.getElementById("reset");
     var startbutton=document.getElementById("start");
+    var databutton=document.getElementById("data");
 
     var score=0;
     var dealerScore = 0;
@@ -18,6 +22,7 @@ window.onload=function(){
     var number2;
     var isGameOver = false;
     var isHit = false;
+    var isDataShown = false;
 
     let score1 = document.getElementById("score1");
     let score2 = document.getElementById("score2");
@@ -102,6 +107,7 @@ window.onload=function(){
             //else keep the game going
             if(score>21){
                 //createDialoguebox();
+                resultsData.push("L");
                 console.log("Player looses!");
                 score1.textContent = "BUST!";
                 isGameOver = true;
@@ -160,10 +166,13 @@ window.onload=function(){
 
             if ((dealerScore > score) && (dealerScore<=21)){
                 score1.textContent = "DEALER WINS!";
+                resultsData.push("L");
             }else if(dealerScore == score){
                 score1.textContent = "TIE GAME!";
+                resultsData.push("T");
             }else{
                 score1.textContent = "PLAYER WINS!";
+                resultsData.push("W");
             }
         }
     
@@ -210,6 +219,21 @@ window.onload=function(){
             score1.textContent = "";
         }
     }
+
+    //display data
+    databutton.onclick=function(){
+        if(isDataShown==true){
+            $('#chart').css("visibility","hidden");
+            isDataShown = false;
+        }else{
+            $('#chart').css("visibility","visible");
+            isDataShown = true;
+        }
+
+        let avg = getVictoryFrequencies(resultsData);
+        drawChart(avg);
+    }
+
 
 }
 
@@ -266,10 +290,123 @@ function numbertoscore(number,score, cards){
 
     return score;
 }
+
 function removeChildren(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+}
+
+function getVictoryFrequencies(data){
+
+    let numWs = 0;
+    let numLs = 0;
+    let numTs = 0;
+
+    for (let i=0;i<data.length;i++){
+        if (data[i] == 'W'){
+            numWs++;
+        }else if (data[i] == 'L'){
+            numLs++;
+        }else if (data[i] == 'T'){
+            numTs++;
+        }
+    }
+
+    return [
+        {"type":'Player Wins',"frequency":numWs/data.length},
+        {"type":'Dealer Wins',"frequency":numLs/data.length},
+        {"type":'Ties Wins',"frequency":numTs/data.length},
+    ];
+
+}
+ 
+function drawChart(data) {
+
+    const margin = 50;
+    const width = 800;
+    const height = 500;
+    const chartWidth = width - 2 * margin;
+    const chartHeight = height - 2 * margin;
+
+    d3.select("svg").remove();
+
+    const colourScale = d3.scaleLinear()
+                            .domain([978, 2188])
+                            .range(['red', 'blue']);
+
+    const xScale = d3.scaleBand() // discrete, bucket
+                        .domain(data.map((data) => data.type))
+                        .range([0, chartWidth])
+                        .padding(0.3);
+
+    const yScale = d3.scaleLinear()
+                        .domain([0, 1])
+                        .range([chartHeight, 0]);
+
+    let svg = d3.select("#chart")
+                    .append('svg')
+                        .attr('width', width)
+                        .attr('height', height);
+
+    // title
+    svg.append('text')
+            .attr('x', width / 2)
+            .attr('y', margin)
+            .attr('text-anchor', 'middle')
+            .attr("font-weight","bold")
+            .text('Blackjack Winning Distribution');
+
+    svg.append("text")
+            .attr("class", "x label")
+            .attr("x", width/2)
+            .attr("y", height - 6)
+            .attr("text-anchor", "middle")
+            .attr("font-weight","bold")
+            .text("Wins, Losses and Ties");
+    
+    svg.append("text")
+            .attr("class", "y label")
+            .attr("text-anchor", "end")
+            .attr("x", -200)
+            .attr("y", 6)
+            .attr("dy", ".75em")
+            .attr("font-weight","bold")
+            .attr("transform", "rotate(-90)")
+            .text("Frequency(%)");
+
+
+    // create a group (g) for the bars
+    let g = svg.append('g')
+                    .attr('transform', `translate(${margin}, ${margin})`);
+
+    // y-axis
+    g.append('g')
+        .call(d3.axisLeft(yScale));
+
+    // x-axis
+    g.append('g')
+        .attr('transform', `translate(0, ${chartHeight})`)
+        .call(d3.axisBottom(xScale));
+
+
+    let rectangles = g.selectAll('rect')
+        .data(data)
+        .enter()
+            .append('rect')
+                .attr('x', (data) => xScale(data.type))
+                .attr('y', (data) => chartHeight)
+                .attr('width', xScale.bandwidth())
+                .attr('height', (data) => 0)
+                .attr('fill', (data) => colourScale(data.frequency))
+
+
+    rectangles.transition()
+        .ease(d3.easeElastic)
+        .attr('height', (data) => chartHeight - yScale(data.frequency))
+        .attr('y', (data) => yScale(data.frequency))
+        .duration(1000)
+        .delay((data, index) => index * 50);
 }
 
 
