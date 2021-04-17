@@ -1,0 +1,15 @@
+extends toplevel 
+block content
+    h1= title
+    body
+        table(class="table")
+            tr
+                th Username
+                th High Score
+                th Message
+            each user in database
+                tr
+                    td= user.username
+                    td= user.highScore
+                    td= user.message
+                     

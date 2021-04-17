@@ -4,7 +4,7 @@ block content
 
     div(class="error")= errorMessage
 
-    form(method="post", action="/processLogin", class="form")
+    form(method="post", action="/processRegistration", class="form")
         label(class="label row1", for="username") Username:
         input(type="text",
             id="username",
@@ -18,5 +18,12 @@ block content
               name="password",
               placeholder="Password",
               class="control row2")
+        
+        label(class="label row3", for="confirmPassword") Confirm Password:
+        input(type="password",
+              id="confirmPassword",
+              name="confirmPassword",
+              placeholder="Confirm Password",
+              class="control row3")
 
         button(class="control row4") Log In 
