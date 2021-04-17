@@ -30,26 +30,28 @@ function getUsers(callback){
     });
 }
 
-function(callback){
+function getUsername(){
     db.all('SELECT username FROM users', (err, username) => {
         if (err){
             console.error('Error getting results');
         }
         else{
-            callback(username);
+            return(username);
         }
     });
 }
 
-function getPasswords(callback){
+function getPasswords(){
     db.all('SELECT password FROM users', (err, password) => {
         if (err){
             console.error('Error getting results');
         }
         else{
-            callback(password);
+            return(password);
         }
     });
 }
 
 module.exports.getUsers = getUsers;
+module.exports.getUsername = getUsername;
+module.exports.getPasswords = getPasswords;

@@ -19,8 +19,8 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'pug');
 
 function userExists(user, pass){
-    users = model.getUsernames(user)
-    passwords = 
+    users = model.getUsernames();
+    passwords = model.getPasswords();
 };
 
 app.get('/newGame', function(request, response) {
