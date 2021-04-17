@@ -1,4 +1,8 @@
 
+html {
+    background-color: darkgreen;
+}
+
 body {
     
     /*background-image: url("https://www.christine-logan.com/applications/war-game/img/background.png");*/
@@ -280,30 +284,7 @@ position: relative;
     visibility: hidden;
 }
 
-footer{
-    bottom: 0;
-    height: 420px;
-    width: 100%;
-    padding-top: 10px;
 
-}
-.footer {
-    padding-top: 10px;
-    /*background-image: url("https://www.animatedimages.org/data/media/633/animated-playing-card-image-0071.gif");*/
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/97/Cards_2.gif");
-    
-
-}
-
-#footerText{
-    font-size: 25px;
-    font-weight: bold;
-    color: #fff;
-}
-
-#footerLink{
-    font-size: 20px;
-}
 
 #showScore{ /*css for score board */
     text-align: center;
