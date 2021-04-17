@@ -111,6 +111,10 @@ window.onload=function(){
                 console.log("Player looses!");
                 score1.textContent = "BUST!";
                 isGameOver = true;
+            }else if(score ==21){
+                resultsData.push("W");
+                score1.textContent = "PLAYER WINS";
+                isGameOver = true;
             }else{
                 score1.textContent = score;
             }
@@ -316,7 +320,7 @@ function getVictoryFrequencies(data){
     return [
         {"type":'Player Wins',"frequency":numWs/data.length},
         {"type":'Dealer Wins',"frequency":numLs/data.length},
-        {"type":'Ties Wins',"frequency":numTs/data.length},
+        {"type":'Tie Game',"frequency":numTs/data.length},
     ];
 
 }
@@ -333,7 +337,7 @@ function drawChart(data) {
 
     const colourScale = d3.scaleLinear()
                             .domain([978, 2188])
-                            .range(['red', 'blue']);
+                            .range(['cyan', 'blue']);
 
     const xScale = d3.scaleBand() // discrete, bucket
                         .domain(data.map((data) => data.type))
