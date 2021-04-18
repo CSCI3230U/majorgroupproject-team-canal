@@ -1,7 +1,29 @@
 //golbal variables 
 var resultsData = [];
 
+
 window.onload=function(){
+
+    const center = document.querySelector('.centered');
+    const heading = document.querySelector('#heading');
+    const player = document.querySelector('#player');
+    const dealer = document.querySelector('#dealer');
+    const startBtn = document.querySelector('#start');
+    const resetBtn = document.querySelector('#reset');
+
+
+
+
+    const tl = new TimelineMax({ default: {ease: 'power1.out'} });
+    tl.fromTo(center, 1, {height: "0%"}, {height: '80%'})
+        .fromTo(heading, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=1")
+        .fromTo(startBtn, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.5")
+        .fromTo(resetBtn, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.5")
+        .fromTo(player, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.3")
+        .fromTo(dealer, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.3");
+        
+
+
 
     let test = [3, 51, 23,17];
     let testCount = 0;
