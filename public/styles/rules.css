@@ -77,6 +77,39 @@ position: relative;
   background-color: #333;
 }
 
+#rules {
+    width: 1100px;
+    margin: auto;
+}
+#intro {
+    padding-top: 60px;
+    width: 500px;
+    float: left;
+    height: 200px;
+}
+#introP{
+    font-size: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+#content {
+    width: 500px;
+    float: right;
+    height: 100px;
+
+}
+h2{
+    background-color: aliceblue;
+    text-align: center;
+    text-decoration: double;
+}
+
+li{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+}
+
 
 
 

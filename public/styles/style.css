@@ -5,8 +5,6 @@ html {
 
 body {
     
-    /*background-image: url("https://www.christine-logan.com/applications/war-game/img/background.png");*/
-    /*background-image: url("https://images.creativemarket.com/0.1.0/ps/6006026/1820/1213/m1/fpnw/wm1/w9eumfb8qsimmn1mog6jk17imeo4cjbbzcyzeb8x9yclgdequr6mtxkfdbqdqqap-.jpg?1551865304&s=b47db0688d7074da424f8b98dc02b24e");*/
     margin: 0 0 40px;
     padding: 0px;
     background-color: darkgreen;
@@ -41,8 +39,6 @@ position: relative;
     }
 
 .console a{
-    /*position: relative;
-    text-decoration: none;*/
     padding: 4px;
     margin: 20px auto;
     width: 150px;
@@ -69,17 +65,16 @@ position: relative;
     color: #fff;
 }
 
-#start, #reset,#data {
+#start, #reset, #data {
     
+    font-size: 25px;
     font-weight: bold;
-    font-size: 20px;
     width: 150px;
     background-image: -webkit-linear-gradient(45deg, #f1c40f 50%, transparent 50%);
     background-position: 100%;
     background-size: 400%;
-    -webkit-transition: background 300ms ease-in-out;
-    transition: background 300ms ease-in-out;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    transition: background 0.45s ease-in-out;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 
 }
 
@@ -267,7 +262,6 @@ position: relative;
     text-shadow: black;
     color:darkcyan;
     background-image: linear-gradient(to bottom, transparent 50%, #2ecc71 50%);
-    background-size: 210%;
     -webkit-transition: background 300ms ease-in-out, color 150ms ease-in-out;
 }
 #hit:hover{
@@ -314,11 +308,12 @@ position: relative;
 
 .navbar-menu {
     list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow:auto;
-  background-color: #333;
+    margin: 0;
+    padding: 0;
+    overflow:auto;
+    background-color: #333;
 }
+
 
 
 
