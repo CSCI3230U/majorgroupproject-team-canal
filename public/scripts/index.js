@@ -1,8 +1,32 @@
 //golbal variables 
 var resultsData = [];
 
-window.onload=function(){
+// class User {
+//     username = '';
+//     resultsData = [];
 
+//     constructor(user) {
+//         this.username = user;
+//     }
+
+//     set results() {
+//         model.getRecords((score) => {
+//             for (let i = 0; i < score.wins; i++) {
+//                 this.resultsData.push("W");
+//             }
+//             for (let i = 0; i < score.losses; i++) {
+//                 this.resultsData.push("L");
+//             }
+//             for (let i = 0; i < score.ties; i++) {
+//                 this.resultsData.push("T");
+//             }
+//         });
+//     }
+//     get user(){return this.username;}
+// }
+
+window.onload=function(){
+    // const player = new User();
     let test = [3, 51, 23,17];
     let testCount = 0;
     let start = 0;

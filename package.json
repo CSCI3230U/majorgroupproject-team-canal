@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/CSCI3230U/majorgroupproject-team-canal#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "pug": "^3.0.2",
+    "sqlite3": "^5.0.2",
+    "uuid": "^8.3.2"
   }
 }

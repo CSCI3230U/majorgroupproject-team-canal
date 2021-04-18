@@ -1,0 +1,29 @@
+extends toplevel
+block content 
+    h1= title
+
+    div(class="error")= errorMessage
+
+    form(method="post", action="/processRegistration", class="form")
+        label(class="label row1", for="username") Username:
+        input(type="text",
+            id="username",
+            name="username",
+            placeholder="Username",
+            class="control row1")
+        
+        label(class="label row2", for="password") Password:
+        input(type="password",
+              id="password",
+              name="password",
+              placeholder="Password",
+              class="control row2")
+        
+        label(class="label row3", for="confirmPassword") Confirm Password:
+        input(type="password",
+              id="confirmPassword",
+              name="confirmPassword",
+              placeholder="Confirm Password",
+              class="control row3")
+
+        button(class="control row4") Log In 

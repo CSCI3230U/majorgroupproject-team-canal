@@ -1,0 +1,23 @@
+doctype
+html
+    head
+        title= title
+        link(rel="stylesheet", href="styles/main.css")
+
+    body
+        ul(class="menu")
+            li
+                a(href="/") Play Game
+            li
+                a(href="/rules") Rules
+            li
+                a(href="/userScores") Scores
+            if(username && username !== '')
+                li
+                    a(href="/logout") Logout
+            else
+                li
+                    a(href="/login") Login
+                li
+                    a(href="/register") Register
+        block content
