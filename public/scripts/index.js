@@ -14,13 +14,15 @@ window.onload=function(){
 
 
 
-    const tl = new TimelineMax({ default: {ease: 'power1.out'} });
-    tl.fromTo(center, 1, {height: "0%"}, {height: '80%'})
+    const tLine = new TimelineMax({ default: {ease: 'power1.out'} });
+    tLine.fromTo(center, 1, {height: "0%"}, {height: '80%'})
         .fromTo(heading, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=1")
         .fromTo(startBtn, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.5")
         .fromTo(resetBtn, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.5")
         .fromTo(player, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.3")
-        .fromTo(dealer, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.3");
+        .fromTo(dealer, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.3")
+        .fromTo(".navbar", {opacity: 0}, { opacity: 1, duration: 0.6 })
+
         
 
 
