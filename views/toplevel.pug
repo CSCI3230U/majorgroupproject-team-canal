@@ -7,17 +7,17 @@ html
     body
         ul(class="menu")
             li
-                a(href="/") Play Game
+                a(href="/", style="font-weight: bold; color: blue; font-size: large;") PLAY GAME
             li
-                a(href="/rules") Rules
+                a(href="/rules", style="font-weight: bold; color: blue; font-size: large;") RULES
             li
-                a(href="/userScores") Scores
+                a(href="/userScores", style="font-weight: bold; color: blue; font-size: large;") SCORES
             if(username && username !== '')
                 li
-                    a(href="/logout") Logoutz
+                    a(href="/logout", style="font-weight: bold; color: blue; font-size: large;") LOGOUT
             else
                 li
-                    a(href="/login") Login
+                    a(href="/login", style="font-weight: bold; color: blue; font-size: large;") LOGIN
                 li
-                    a(href="/register") Register
+                    a(href="/register", style="font-weight: bold; color: blue; font-size: large;") REGISTER
         block content

@@ -1,32 +1,32 @@
 //golbal variables 
 var resultsData = [];
 
-// class User {
-//     username = '';
-//     resultsData = [];
-
-//     constructor(user) {
-//         this.username = user;
-//     }
-
-//     set results() {
-//         model.getRecords((score) => {
-//             for (let i = 0; i < score.wins; i++) {
-//                 this.resultsData.push("W");
-//             }
-//             for (let i = 0; i < score.losses; i++) {
-//                 this.resultsData.push("L");
-//             }
-//             for (let i = 0; i < score.ties; i++) {
-//                 this.resultsData.push("T");
-//             }
-//         });
-//     }
-//     get user(){return this.username;}
-// }
 
 window.onload=function(){
-    // const player = new User();
+
+    const center = document.querySelector('.centered');
+    const heading = document.querySelector('#heading');
+    const player = document.querySelector('#player');
+    const dealer = document.querySelector('#dealer');
+    const startBtn = document.querySelector('#start');
+    const resetBtn = document.querySelector('#reset');
+
+
+
+
+    const tLine = new TimelineMax({ default: {ease: 'power1.out'} });
+    tLine.fromTo(center, 1, {height: "0%"}, {height: '80%'})
+        .fromTo(heading, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=1")
+        .fromTo(startBtn, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.5")
+        .fromTo(resetBtn, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.5")
+        .fromTo(player, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.3")
+        .fromTo(dealer, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.3")
+        .fromTo(".navbar", {opacity: 0}, { opacity: 1, duration: 0.6 })
+
+        
+
+
+
     let test = [3, 51, 23,17];
     let testCount = 0;
     let start = 0;
