@@ -24,17 +24,6 @@ window.onload=function(){
         .fromTo(dealer,  {opacity:0, x:40}, {opacity:2, x:0}, "-=0.4")
         .fromTo(".navbar", {opacity: 0}, { opacity: 1, duration: 0.65 });
 
-    center.addEventListener("mouseenter", (e) =>{
-        player.style.transform = "translateZ(100px)";
-        
-
-    })
-
-    center.addEventListener("mouseleave", (e) =>{
-        player.style.transform = "translateZ(0px)";
-       
-    })    
-
 
 
     let test = [3, 51, 23,17];
@@ -64,10 +53,25 @@ window.onload=function(){
     var div_for_noti_dealer=document.getElementById("dealer_noti");
 
     var blackjack=document.getElementById("heading");
-
+    const blackjacktext=blackjack.textContent;
+    const splittext=blackjacktext.split("");
+    blackjack.textContent="";
+    for(let i=0;i<splittext.length;i++){
+        var span="<span>"+splittext[i]+"</span>";
+        blackjack.innerHTML+=span;    
+    }
     
-    
-    
+    let char=0;
+    let random=generaterandomdigit();
+    let timer=setInterval(() => {
+     
+     const span=blackjack.querySelectorAll("span")[22];
+     $(span).toggle("fold",4000);
+     //$(blackjack.textContent).toggle("fade",100)
+     }, (500));
+     setTimeout(function(){
+        
+    },random);
     
     startbutton.onclick=function(){
        
@@ -355,7 +359,10 @@ window.onload=function(){
 
 
 }
-
+function generaterandomdigit(){
+    var random_number=Math.floor((Math.random() * (5-800+1)) + 5);
+    return random_number;
+}
 function generaterandomnumber(){
     var random_number=Math.floor((Math.random() * 52) + 1);
     return random_number;

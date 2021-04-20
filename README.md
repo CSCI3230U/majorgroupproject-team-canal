@@ -7,8 +7,8 @@ Before you submit your project, modify the following table to include everyone's
 | Chanuka Goonetilleke | ChanukaGoonetilleke |
 | Luca Lotito | LucaLot |
 | Azeem Hussaini | Azeem-Hussaini |
-| <first_name4> <last_name4> | <github_username4> |
-| <first_name5> <last_name5> | <github_username5> |
+| Nishchal Bhardwaj | Nishchal2309 |
+| Anannya Saha | anannyasaha |
 
 _**Note:** You can delete the unused rows from the table._
 
