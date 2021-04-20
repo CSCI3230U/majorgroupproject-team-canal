@@ -2,9 +2,9 @@ let express = require('express');
 let app = express();
 let session = require('express-session');
 const { v4: uuidv4 } = require('uuid');
-
+var fs = require('fs');
+userData = [0,0,0];
 const model = require('./database/handler/databasehandle.js');
-
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
@@ -12,7 +12,7 @@ app.use(session({
     genid: uuidv4,
     resave: false,
     saveUninitialized: false,
-    secret: 'shinzou wo sasageyo why',
+    secret: 'this is probably unsecure',
 }))
 
 app.set('views', __dirname + '/views');
@@ -47,10 +47,13 @@ app.post('/processLogin', function (request, response) {
         if (conf) {
             request.session.username = username;
             request.session.password = password;
+            model.getRecords(username, (scores) => {
+                setUser([scores[0].wins, scores[0].losses, scores[0].ties])
+                response.render('loginConfirmed', {
+                    title: 'Login Succesful',
+                    username: username
+                });
 
-            response.render('loginConfirmed', {
-                title: 'Login Succesful',
-                username: username
             });
         }
         else {
@@ -82,10 +85,12 @@ app.post('/processRegistration', function (request, response) {
 
                 request.session.username = username;
                 request.session.password = password;
-
-                response.render('loginConfirmed', {
-                    title: 'Login Succesful',
-                    username: username
+                model.getRecords(username, (scores) => {
+                    setUser([scores[0].wins, scores[0].losses, scores[0].ties])
+                    response.render('loginConfirmed', {
+                        title: 'Login Succesful',
+                        username: username
+                    });
                 });
             }
             else {
@@ -114,8 +119,47 @@ app.get('/userScores', function (request, response) {
     });
 });
 
+app.get('/win', function (request, response) {
+    if(username!=''){
+    model.updateRankings(users,userData[0]+1,userData[1],userData[2], () => {
+        console.log("Win Updated")
+    });
+}
+});
+
+app.get('/loss', function (request, response) {
+    if(username!=''){
+    model.updateRankings(users,userData[0],userData[1]+1,userData[2], () => {
+        console.log("Loss Updated")
+    });
+}
+});
+
+app.get('/tie', function (request, response) {
+    if(username!=''){
+    model.updateRankings(users,userData[0],userData[1],userData[2]+1, () => {
+        console.log("Tie Updated")
+    });
+}
+});
+
+
+
+
+// app.get('/currentUser', function (request, response) {
+//     response.write(getUserData(), 'utf8', ()=>{
+//         console.log('writing data');
+//     });
+//     response.end('ok');
+// });
+
+
 app.set('port', process.env.PORT || 4000);
 
 app.listen(app.get('port'), function () {
     console.log(`Listening on port ${app.get('port')}`);
 });
+//Solving my issues through ineffecient means that probably leaves this site open to some form of attack
+function setUser(user){
+    userData=user;
+}
