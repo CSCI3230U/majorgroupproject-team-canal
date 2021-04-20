@@ -42,8 +42,9 @@ position: relative;
 
 #chart{
     position: relative;
-        width: 850px;
-        margin: 10px auto;
+    width: 850px;
+    margin: 10px auto;
+    color: white;
     }
 
 .console a{
