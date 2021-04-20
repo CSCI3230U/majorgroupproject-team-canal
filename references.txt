@@ -12,3 +12,5 @@ cdnjs. (n.d.). gsap - Libraries - cdnjs - The #1 free and open source CDN built 
 
 Docs. GreenSock. (n.d.). https://greensock.com/docs/v2/Easing. 
 
+Kusnierewicz. (n.d.). Kusnierewicz/Blackjack-game-in-JS. GitHub. https://github.com/Kusnierewicz/Blackjack-game-in-JS. 
+
