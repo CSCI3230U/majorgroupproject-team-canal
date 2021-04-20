@@ -1,32 +1,42 @@
 //golbal variables 
 var resultsData = [];
 
-// class User {
-//     username = '';
-//     resultsData = [];
-
-//     constructor(user) {
-//         this.username = user;
-//     }
-
-//     set results() {
-//         model.getRecords((score) => {
-//             for (let i = 0; i < score.wins; i++) {
-//                 this.resultsData.push("W");
-//             }
-//             for (let i = 0; i < score.losses; i++) {
-//                 this.resultsData.push("L");
-//             }
-//             for (let i = 0; i < score.ties; i++) {
-//                 this.resultsData.push("T");
-//             }
-//         });
-//     }
-//     get user(){return this.username;}
-// }
 
 window.onload=function(){
-    // const player = new User();
+    const center = document.querySelector('.centered');
+    const heading = document.querySelector('#heading');
+    const player = document.querySelector('#player');
+    const dealer = document.querySelector('#dealer');
+    const startBtn = document.querySelector('#start');
+    const resetBtn = document.querySelector('#reset');
+    const playerBtn = document.querySelector('#data');
+
+
+
+
+    const tLine = new TimelineMax();
+    tLine.fromTo(center, 1, {height: "0%"}, {height: '100%'})
+        .fromTo(heading, {opacity:0, x:50}, {opacity:2, x:0}, "-=0.95")
+        .fromTo(startBtn,  {opacity:0, x:40}, {opacity:2, x:0}, "-=0.55")
+        .fromTo(resetBtn, {opacity:0, x:40}, {opacity:2, x:0}, "-=0.55")
+        .fromTo(playerBtn,  {opacity:0, x:40}, {opacity:2, x:0}, "-=0.55")
+        .fromTo(player,  {opacity:0, x:40}, {opacity:2, x:0}, "-=0.4")
+        .fromTo(dealer,  {opacity:0, x:40}, {opacity:2, x:0}, "-=0.4")
+        .fromTo(".navbar", {opacity: 0}, { opacity: 1, duration: 0.65 });
+
+    center.addEventListener("mouseenter", (e) =>{
+        player.style.transform = "translateZ(100px)";
+        
+
+    })
+
+    center.addEventListener("mouseleave", (e) =>{
+        player.style.transform = "translateZ(0px)";
+       
+    })    
+
+
+
     let test = [3, 51, 23,17];
     let testCount = 0;
     let start = 0;
@@ -50,10 +60,17 @@ window.onload=function(){
 
     let score1 = document.getElementById("score1");
     let score2 = document.getElementById("score2");
+    var div_for_noti=document.getElementById("noti");
+    var div_for_noti_dealer=document.getElementById("dealer_noti");
 
+    var blackjack=document.getElementById("heading");
 
     
+    
+    
+    
     startbutton.onclick=function(){
+       
         if (start == 0){
             $('#hit').css("visibility","visible");
             $('#stand').css("visibility","visible");
@@ -82,9 +99,13 @@ window.onload=function(){
                 score2.textContent=dealerScore;
             start = 1;
         }
+        
     }
 
     hitbutton.onclick=function(){
+        if(isGameOver==true){
+            $(hitbutton).effect("shake");
+        }
         if(isGameOver == false){
 
             if(isHit == false){
@@ -125,6 +146,7 @@ window.onload=function(){
             card_number.src="image/card%20("+number+").jpg";
             card_number.setAttribute("width","80px");
             player_cards.appendChild(card_number);
+            $(card_number).effect("slide");
             score=numbertoscore(number,score, number_array);
 
             //check is the score of the player is not greater than 21. if true then print that the play bust
@@ -132,12 +154,38 @@ window.onload=function(){
             if(score>21){
                 //createDialoguebox();
                 resultsData.push("L");
+                fetch('/loss')
+                .then((response) => {
+                    console.log(response);
+                });
                 console.log("Player looses!");
-                score1.textContent = "BUST!";
+                score1.textContent=score;
+                
+                div_for_noti.textContent = "BUSTED!!";
+                setTimeout(function(){},500);
+                div_for_noti.style="color:white; background-color:#ff7f50";
+                $(div_for_noti).effect("puff",1700);
+               
+                div_for_noti_dealer.textContent = "DEALER_WINS!";
+                //setTimeout(function(){},1000);
+                div_for_noti_dealer.style="background-color:#87c1ec;color:#286ca9";
+                $(div_for_noti_dealer).effect("puff",1700);
+               
                 isGameOver = true;
             }else if(score ==21){
                 resultsData.push("W");
-                score1.textContent = "PLAYER WINS";
+                fetch('/win')
+                .then((response) => {
+                    console.log(response);
+                });
+                score1.textContent=score;
+                
+                div_for_noti.textContent = "PLAYER_WINS!";
+                div_for_noti.style="background-color:#87c1ec; color:#286ca9";
+                $(div_for_noti).effect("puff",1700);
+                setTimeout(function(){
+                    //div_for_noti.textContent = "";
+                },1500);
                 isGameOver = true;
             }else{
                 score1.textContent = score;
@@ -155,6 +203,9 @@ window.onload=function(){
     }
 
     standbutton.onclick=function(){
+        if(isGameOver==true){
+            $(standbutton).effect("shake");
+        }
         if(isGameOver == false){
             var dealer_cards=document.getElementById("dealer_cards");
             removeChildren(dealer_cards);
@@ -187,20 +238,58 @@ window.onload=function(){
                 dealer_card_number.src="image/card%20("+dealerCards[i]+").jpg";
                 dealer_card_number.setAttribute("width","80px");
                 dealer_cards.appendChild(dealer_card_number);
+                $(dealer_card_number).effect("slide");
+
             }
 
             console.log("Dealer score is: " + dealerScore);
             console.log("Player score is: " + score);
-
+            
             if ((dealerScore > score) && (dealerScore<=21)){
-                score1.textContent = "DEALER WINS!";
+               
+                div_for_noti_dealer.textContent = "DEALER_WINS!";
+                div_for_noti_dealer.style="background-color:#87c1ec;color:#286ca9;";
+                $(div_for_noti_dealer).effect("puff",1700);
+                isGameOver = true;
                 resultsData.push("L");
+                fetch('/loss')
+                .then((response) => {
+                    console.log(response);
+                });
             }else if(dealerScore == score){
-                score1.textContent = "TIE GAME!";
+                
+                div_for_noti.textContent = "TIE_GAME!";
+                div_for_noti.style="background-color:yellowgreen;color:seagreen;top:490px;";
+                $(div_for_noti).effect("puff",1700);
+                setTimeout(function(){
+                    div_for_noti.textContent = "";
+                },1000);
+                isGameOver = true;
                 resultsData.push("T");
+                fetch('/tie')
+                .then((response) => {
+                    console.log(response);
+                });
             }else{
-                score1.textContent = "PLAYER WINS!";
+                
+                div_for_noti.textContent = "PLAYER_WINS!";
+                $(div_for_noti).effect("puff",1700);
+                div_for_noti.style="background-color:#87c1ec; color:#286ca9;";
+        
+                
+                div_for_noti_dealer.textContent = "BUSTED!!";
+
+                $(div_for_noti_dealer).effect("puff",1700);
+                div_for_noti_dealer.style="background-color:#ff7f50;color:white;";
+               
+                
+                
+                isGameOver = true;
                 resultsData.push("W");
+                fetch('/win')
+                .then((response) => {
+                    console.log(response);
+                });
             }
         }
     
@@ -235,10 +324,12 @@ window.onload=function(){
                 dealer_card_number.src="image/back.jpg";
                 dealer_card_number.setAttribute("width","80px");
                 dealer_cards.appendChild(dealer_card_number);
+                $(dealer_card_number).effect("slide");
                 var dealer_card_number=document.createElement("img");
                 dealer_card_number.src="image/card%20("+number2+").jpg";
                 dealer_card_number.setAttribute("width","80px");
                 dealer_cards.appendChild(dealer_card_number);
+                $(dealer_card_number).effect("slide");
             let score1 = document.getElementById("score1");
             score = 0;
             

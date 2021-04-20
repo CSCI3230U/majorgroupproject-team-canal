@@ -5,11 +5,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css?family=Merriweather:700" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js" integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="scripts/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    
 
 </head>
 <body>
@@ -19,16 +23,22 @@
       
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item" href="/" style="font-weight: bold;">
-              Play Game
-            </a>
-        
-            <a class="navbar-item" href="/rules" style="font-weight: bold;">
-              Rules
+            <a class="navbar-item" href="index.html" style="font-weight: bold; color:white; font-size: large;">
+              PLAY GAME
+              </a>
+
+          <a class="navbar-item" href="rules.html" style="font-weight: bold; color:yellowgreen; font-size: large;">
+             RULES
+              </a>
+            <a class="navbar-item" href="/userScores" style="font-weight: bold; color: red; font-size: large;">
+                SCORES
             </a>
 
-            <a class="navbar-item" href="/userScores" style="font-weight: bold;">
-              Scores
+            <a class="navbar-item" href="/login" style="font-weight: bold; color: blue; font-size: large;">
+                LOGIN
+            </a>
+            <a class="navbar-item" href="/register" style="font-weight: bold; color: green; font-size: large;">
+                REGISTER
             </a>
           </div>
           </div>
@@ -40,7 +50,7 @@
        
         <section class="hero is-small is-primary">
             <div class="hero-body">
-              <p class="title">
+              <p id="heading">
                 BLACKJACK
               </p>
             </div>
@@ -63,10 +73,13 @@
         <div class="results">
             <div class="dealer">
                 <h1 id="dealer">DEALER'S HAND</h1>
-                <div class="dealers_cards" style="height:96px">
+                <div class="dealers_cards">
                     <div class='field-body' id='dealer_cards'>
                       
                     </div>
+                    <p id="dealer_noti">
+
+                    </p>
                 </div>
                 <div class="score" id="dealer_score_board">
                     <p id = "score2"></p>
@@ -82,10 +95,14 @@
                       
                    </div>
                 </div>
+                <p id="noti">
 
+                </p>
             </div>
+            
             <button id="hit">HIT!</button>
             <button id="stand">STAND</button>
+            
         </div>
         
 

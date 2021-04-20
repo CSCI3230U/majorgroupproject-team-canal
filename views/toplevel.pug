@@ -2,22 +2,22 @@ doctype
 html
     head
         title= title
-        link(rel="stylesheet", href="styles/main.css")
+        link(rel="stylesheet", href="styles/pug.css")
 
     body
         ul(class="menu")
             li
-                a(href="/") Play Game
+                a(id='play', href="/") Play Game
             li
-                a(href="/rules") Rules
+                a(id='rules', href="/rules") Rules
             li
-                a(href="/userScores") Scores
+                a(id='score', href="/userScores") Scores
             if(username && username !== '')
                 li
-                    a(href="/logout") Logout
+                    a(id='logout', href="/logout") Logout
             else
                 li
-                    a(href="/login") Login
+                    a(id='login', href="/login") Login
                 li
-                    a(href="/register") Register
+                    a(id='register', href="/register") Register
         block content

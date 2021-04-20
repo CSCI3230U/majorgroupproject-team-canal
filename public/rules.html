@@ -8,24 +8,32 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js" integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==" crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="scripts/index.js"></script>
-
+    <script type="text/javascript" src="scripts/rules.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></script>
+  
 
 </head>
 <body>
     <nav class="navbar">
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item" href="/" style="font-weight: bold;">
-                Play Game
+            <a class="navbar-item" href="index.html" style="font-weight: bold; color:white; font-size: large;">
+                PLAY GAME
                 </a>
 
-            <a class="navbar-item" href="/rules" style="font-weight: bold;">
-               Rules
+            <a class="navbar-item" href="rules.html" style="font-weight: bold; color:yellowgreen; font-size: large;">
+               RULES
                 </a>
-            <a class="navbar-item" href="/userScores" style="font-weight: bold;">
-                Scores
-                </a>
+            <a class="navbar-item" href="/userScores" style="font-weight: bold; color: red; font-size: large;">
+                SCORES
+            </a>
+  
+            <a class="navbar-item" href="/login" style="font-weight: bold; color: blue; font-size: large;">
+                LOGIN
+            </a>
+            <a class="navbar-item" href="/register" style="font-weight: bold; color: green; font-size: large;">
+                REGISTER
+            </a>
           </div>
     
           </div>
@@ -37,7 +45,7 @@
        
         <section class="hero is-small is-primary">
             <div class="hero-body">
-              <p class="title">
+              <p class="title" id="heading2">
                 BLACKJACK RULES
               </p>
             </div>
@@ -55,11 +63,11 @@
             </p>
         </div>
 
-        <div class="second is-size-4 is-family-monospace">
-        </div>
+        <!--<div class="second is-size-4 is-family-monospace">
+        </div>-->
 
         <div id="content" class="content is-family-monospace">
-          <h2>Basic Blackjack Rules </h2>
+            <h2 style="color:yellowgreen; font-weight: bold;">Basic Blackjack Rules </h2>
             <ol type="1">
               <li>The goal of blackjack is to beat the dealer's hand without going over 21.</li>
               <li>Face cards are worth 10. Aces are worth 1 or 11, whichever makes a better hand.</li>
