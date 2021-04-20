@@ -15,7 +15,7 @@ window.onload=function(){
 
 
 
-    const tLine = new TimelineMax({ default: {ease: 'power1.out'} });
+    const tLine = new TimelineMax({ default: {ease: 'power2.out'} });
     tLine.fromTo(center, 1, {height: "0%"}, {height: '100%'})
         .fromTo(heading, {opacity:0, x:50}, {opacity:2, x:0}, "-=0.95")
         .fromTo(startBtn,  {opacity:0, x:40}, {opacity:2, x:0}, "-=0.55")

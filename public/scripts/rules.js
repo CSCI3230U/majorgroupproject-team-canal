@@ -8,7 +8,7 @@ window.onload=function(){
     const disclamer = document.querySelector('#introP');
     const content = document.querySelector("#content");
 
-    const tLine = new TimelineMax({ default: {ease: 'power1.out'} });
+    const tLine = new TimelineMax({ default: {ease: 'power2.out'} });
 
     tLine.fromTo(rules, 1, {height: "0%"}, {height: '100%'})
         .fromTo(heading2,  {opacity:0, x:50}, {opacity:2, x:0}, "-=0.95")
