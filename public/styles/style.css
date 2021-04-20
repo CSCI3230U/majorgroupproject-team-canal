@@ -79,10 +79,10 @@ position: relative;
     font-size: 25px;
     font-weight: bold;
     width: 150px;
-    background-image: -webkit-linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+    background-image: -webkit-linear-gradient(50deg, #f1c40f 60%, transparent 60%);
     background-position: 100%;
-    background-size: 400%;
-    transition: background 0.45s ease-in-out;
+    background-size: 350%;
+    transition: background 0.55s ease-in-out;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 
 }
@@ -237,24 +237,6 @@ position: relative;
     bottom: 130px;
 }
 
-.gameConsole a{
-    position: relative;
-    color: black;
-    text-decoration: none;
-    background-color: rgba(255,208,0,1);
-    font-weight: 700;
-    font-size: 1.2em;
-    display: block;
-    padding: 15px 10px 0px 10px;
-    border-radius: 20px;
-    margin: 10px auto;
-    width: 50px;
-    height: 35px;
-    text-align: center;
-
-    -moz-transition: all .1s ease;
-    transition: all .1s ease;
-}
 
 #hit{ /*hit button*/
     font-size: 30px;
@@ -287,8 +269,8 @@ position: relative;
     border-color:cadetblue;
     text-shadow: black;
     color:darkcyan;
-    background-image: linear-gradient(to bottom, transparent 50%, #2ecc71 50%);
-    -webkit-transition: background 300ms ease-in-out, color 150ms ease-in-out;
+    background-image: linear-gradient(to bottom, transparent 60%, #2ecc71 60%);
+    -webkit-transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 #hit:hover{
     color:black;
