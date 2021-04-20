@@ -15,7 +15,7 @@ Before you submit your project, modify the following table to include everyone's
 _**Note:** You can delete the unused rows from the table._
 
 Run conditions:
-To run, after installing on you're device run npm install to get all required directories. Afterwards, run the server in your preferred way. FOr example, either running nodemon or node server.js will work.
+To run, after installing on you're device run npm install to get all required directories. Afterwards, run the server in your preferred way. For example, either running nodemon or node server.js will work.
 Afterwards, go to localhost:4000 in your favourite internet browser and you'll arrive at the game. To test out login capabilites, click login at the top of the screen
 
 ## Overview
