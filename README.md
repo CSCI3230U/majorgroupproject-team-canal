@@ -16,8 +16,6 @@ Run conditions:
 To run, after installing on you're device run npm install to get all required directories. Afterwards, run the server in your preferred way. For example, either running nodemon or node server.js will work.
 Afterwards, go to localhost:4000 in your favourite internet browser and you'll arrive at the game. To test out login capabilites, click login at the top of the screen
 
-_**Note:** You can delete the unused rows from the table._
-
 
 ## Overview
 This group project is designed for you to demonstrate the skills that you have learned in this course.  The final project that you submit in the last week of classes will be a completed web application.  Non-functional requirements, especially those associated with production-readiness, will be considered extremely important when marking this project.  You are expected to work in a group of 3-5 when completing this project.  Students will be prohibited from working alone on the project, as this eliminates one of the learning objectives of this assessment.  
