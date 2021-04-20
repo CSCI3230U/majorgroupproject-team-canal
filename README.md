@@ -1,5 +1,7 @@
 # Major Group Project
 
+Link to the independent study slides: https://docs.google.com/presentation/d/1Yn2y_M3h0Eq9c-HWhkw34Cef0KtrrSziF_tc2YV7bpQ/edit#slide=id.p
+
 Before you submit your project, modify the following table to include everyone's full name and GitHub usernames:
 
 | Group Member Name          | GitHub Username    |
@@ -11,6 +13,9 @@ Before you submit your project, modify the following table to include everyone's
 | Anannya Saha | anannyasaha |
 
 _**Note:** You can delete the unused rows from the table._
+
+Run conditions:
+To run, after installing on you're device run npm i install to get all required directories. Afterwards, running nodemon will run the server
 
 ## Overview
 This group project is designed for you to demonstrate the skills that you have learned in this course.  The final project that you submit in the last week of classes will be a completed web application.  Non-functional requirements, especially those associated with production-readiness, will be considered extremely important when marking this project.  You are expected to work in a group of 3-5 when completing this project.  Students will be prohibited from working alone on the project, as this eliminates one of the learning objectives of this assessment.  
