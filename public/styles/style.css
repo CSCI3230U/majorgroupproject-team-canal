@@ -290,7 +290,9 @@ span{
     visibility: hidden;
 }
 
-
+#chart{
+    color:#fff;
+}
 
 #showScore{ /*css for score board */
     text-align: center;
