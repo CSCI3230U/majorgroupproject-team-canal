@@ -65,10 +65,25 @@ window.onload=function(){
     var div_for_noti_dealer=document.getElementById("dealer_noti");
 
     var blackjack=document.getElementById("heading");
-
+    const blackjacktext=blackjack.textContent;
+    const splittext=blackjacktext.split("");
+    blackjack.textContent="";
+    for(let i=0;i<splittext.length;i++){
+        var span="<span>"+splittext[i]+"</span>";
+        blackjack.innerHTML+=span;    
+    }
     
-    
-    
+    let char=0;
+    let random=generaterandomdigit();
+    let timer=setInterval(() => {
+     
+     const span=blackjack.querySelectorAll("span")[22];
+     $(span).toggle("fold",4000);
+     //$(blackjack.textContent).toggle("fade",100)
+     }, (500));
+     setTimeout(function(){
+        
+    },random);
     
     startbutton.onclick=function(){
        
@@ -336,7 +351,10 @@ window.onload=function(){
 
 
 }
-
+function generaterandomdigit(){
+    var random_number=Math.floor((Math.random() * (5-800+1)) + 5);
+    return random_number;
+}
 function generaterandomnumber(){
     var random_number=Math.floor((Math.random() * 52) + 1);
     return random_number;
