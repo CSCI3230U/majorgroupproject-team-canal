@@ -50,10 +50,17 @@ window.onload=function(){
 
     let score1 = document.getElementById("score1");
     let score2 = document.getElementById("score2");
+    var div_for_noti=document.getElementById("noti");
+    var div_for_noti_dealer=document.getElementById("dealer_noti");
 
+    var blackjack=document.getElementById("heading");
 
     
+    
+    
+    
     startbutton.onclick=function(){
+       
         if (start == 0){
             $('#hit').css("visibility","visible");
             $('#stand').css("visibility","visible");
@@ -82,9 +89,13 @@ window.onload=function(){
                 score2.textContent=dealerScore;
             start = 1;
         }
+        
     }
 
     hitbutton.onclick=function(){
+        if(isGameOver==true){
+            $(hitbutton).effect("shake");
+        }
         if(isGameOver == false){
 
             if(isHit == false){
@@ -125,6 +136,7 @@ window.onload=function(){
             card_number.src="image/card%20("+number+").jpg";
             card_number.setAttribute("width","80px");
             player_cards.appendChild(card_number);
+            $(card_number).effect("slide");
             score=numbertoscore(number,score, number_array);
 
             //check is the score of the player is not greater than 21. if true then print that the play bust
@@ -133,11 +145,29 @@ window.onload=function(){
                 //createDialoguebox();
                 resultsData.push("L");
                 console.log("Player looses!");
-                score1.textContent = "BUST!";
+                score1.textContent=score;
+                
+                div_for_noti.textContent = "BUSTED!!";
+                setTimeout(function(){},500);
+                div_for_noti.style="color:white; background-color:#ff7f50";
+                $(div_for_noti).effect("puff",1700);
+               
+                div_for_noti_dealer.textContent = "DEALER_WINS!";
+                //setTimeout(function(){},1000);
+                div_for_noti_dealer.style="background-color:#87c1ec;color:#286ca9";
+                $(div_for_noti_dealer).effect("puff",1700);
+               
                 isGameOver = true;
             }else if(score ==21){
                 resultsData.push("W");
-                score1.textContent = "PLAYER WINS";
+                score1.textContent=score;
+                
+                div_for_noti.textContent = "PLAYER_WINS!";
+                div_for_noti.style="background-color:#87c1ec; color:#286ca9";
+                $(div_for_noti).effect("puff",1700);
+                setTimeout(function(){
+                    //div_for_noti.textContent = "";
+                },1500);
                 isGameOver = true;
             }else{
                 score1.textContent = score;
@@ -155,6 +185,9 @@ window.onload=function(){
     }
 
     standbutton.onclick=function(){
+        if(isGameOver==true){
+            $(standbutton).effect("shake");
+        }
         if(isGameOver == false){
             var dealer_cards=document.getElementById("dealer_cards");
             removeChildren(dealer_cards);
@@ -187,19 +220,45 @@ window.onload=function(){
                 dealer_card_number.src="image/card%20("+dealerCards[i]+").jpg";
                 dealer_card_number.setAttribute("width","80px");
                 dealer_cards.appendChild(dealer_card_number);
+                $(dealer_card_number).effect("slide");
+
             }
 
             console.log("Dealer score is: " + dealerScore);
             console.log("Player score is: " + score);
-
+            
             if ((dealerScore > score) && (dealerScore<=21)){
-                score1.textContent = "DEALER WINS!";
+               
+                div_for_noti_dealer.textContent = "DEALER_WINS!";
+                div_for_noti_dealer.style="background-color:#87c1ec;color:#286ca9;";
+                $(div_for_noti_dealer).effect("puff",1700);
+                isGameOver = true;
                 resultsData.push("L");
             }else if(dealerScore == score){
-                score1.textContent = "TIE GAME!";
+                
+                div_for_noti.textContent = "TIE_GAME!";
+                div_for_noti.style="background-color:yellowgreen;color:seagreen;top:490px;";
+                $(div_for_noti).effect("puff",1700);
+                setTimeout(function(){
+                    div_for_noti.textContent = "";
+                },1000);
+                isGameOver = true;
                 resultsData.push("T");
             }else{
-                score1.textContent = "PLAYER WINS!";
+                
+                div_for_noti.textContent = "PLAYER_WINS!";
+                $(div_for_noti).effect("puff",1700);
+                div_for_noti.style="background-color:#87c1ec; color:#286ca9;";
+        
+                
+                div_for_noti_dealer.textContent = "BUSTED!!";
+
+                $(div_for_noti_dealer).effect("puff",1700);
+                div_for_noti_dealer.style="background-color:#ff7f50;color:white;";
+               
+                
+                
+                isGameOver = true;
                 resultsData.push("W");
             }
         }
@@ -235,10 +294,12 @@ window.onload=function(){
                 dealer_card_number.src="image/back.jpg";
                 dealer_card_number.setAttribute("width","80px");
                 dealer_cards.appendChild(dealer_card_number);
+                $(dealer_card_number).effect("slide");
                 var dealer_card_number=document.createElement("img");
                 dealer_card_number.src="image/card%20("+number2+").jpg";
                 dealer_card_number.setAttribute("width","80px");
                 dealer_cards.appendChild(dealer_card_number);
+                $(dealer_card_number).effect("slide");
             let score1 = document.getElementById("score1");
             score = 0;
             
