@@ -2,7 +2,11 @@
 var resultsData = [];
 
 window.onload=function(){
-        
+    
+    fetch('/win');
+    fetch('/loss');
+    fetch('/tie');
+
     const center = document.querySelector('.centered');
     const heading = document.querySelector('#heading');
     const player = document.querySelector('#player');

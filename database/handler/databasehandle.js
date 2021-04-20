@@ -1,5 +1,7 @@
-const sqlite3 = require('sqlite3').verbose();
+//Code that creates and handles a sqlite3 database
 
+const sqlite3 = require('sqlite3').verbose();
+//creates/loads a new database
 const db = new sqlite3.Database('./database/model/users.db', (err) => {
     if (err) {
         console.error('Error while connecting to database: ', err);
@@ -19,9 +21,9 @@ db.serialize(() => {
                                 ties NUMERIC DEFAULT 0,
                                 message TEXT)`)
     .run(`INSERT INTO users(username, password, wins, losses, ties, message) VALUES(?, ?, ?, ?, ?, ?)`,
-        ['admin', 'sasageyo', 0, 0, 0, 'The first one']);
+        ['admin', 'secure', 0, 0, 0, 'The first one']);
 });
-
+//Returns a record of all non password fields from user
 function getUsers(callback){
     db.all('SELECT username, wins, losses, ties, message FROM users', (err, users) => {
         if (err){
@@ -32,7 +34,7 @@ function getUsers(callback){
         }
     });
 }
-
+//Returns a user's win/loss/tie record
 function getRecords(user, callback){
     db.all('SELECT wins, losses, ties FROM users WHERE username = ?', 
     [user], (err, scores) => {
@@ -44,7 +46,7 @@ function getRecords(user, callback){
         }
     });
 }
-
+// Not a getter, finds if user's user name and password exists
 function getUsernames(user, pass, callback){
     
      db.all('SELECT username, password FROM users', function(err, users){
@@ -65,7 +67,7 @@ function getUsernames(user, pass, callback){
     });
     
 }
-
+//Checks if username exists in data
 function checkUsername(user, callback) {
     db.all('SELECT username FROM users', function (err, users) {
         var r = false;
@@ -83,7 +85,7 @@ function checkUsername(user, callback) {
         callback(r);
     });
 }
-
+//Registers a new user into the database
 function registerUser(user, pass) {
     db.run('INSERT INTO users(username, password) VALUES(?, ?)', [user, pass], (err) => {
         if (err) {
@@ -91,7 +93,7 @@ function registerUser(user, pass) {
         }
     });
 }
-
+//Updates a user's score
 function updateRankings(user, win, loss, tie, callback) {
     db.run('UPDATE users SET wins = ?, losses = ?, ties = ? WHERE username = ?', 
            [win, loss, tie, user], (err) => {
@@ -103,7 +105,7 @@ function updateRankings(user, win, loss, tie, callback) {
     });
 }
 
-
+//Model exports so the server can use them
 module.exports.getUsers = getUsers;
 module.exports.getUsernames = getUsernames;
 module.exports.checkUsername = checkUsername;

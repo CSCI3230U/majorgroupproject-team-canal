@@ -74,8 +74,12 @@ html {
     grid-row: 3;
 }
 
+.row3 {
+   grid-row: 4;
+}
+
 .row4 {
-    grid-row: 4;
+    grid-row: 5;
     margin-left: 3rem;
 }
 
