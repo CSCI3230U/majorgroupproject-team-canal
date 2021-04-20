@@ -1,5 +1,7 @@
 # Major Group Project
 
+Link to the independent study slides: https://docs.google.com/presentation/d/1Yn2y_M3h0Eq9c-HWhkw34Cef0KtrrSziF_tc2YV7bpQ/edit#slide=id.p
+
 Before you submit your project, modify the following table to include everyone's full name and GitHub usernames:
 
 | Group Member Name          | GitHub Username    |
