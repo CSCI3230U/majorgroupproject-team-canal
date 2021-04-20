@@ -6,7 +6,7 @@ Before you submit your project, modify the following table to include everyone's
 | :------------------------- |:------------------:|
 | Chanuka Goonetilleke | ChanukaGoonetilleke |
 | Luca Lotito | LucaLot |
-| Azeem Hussaini | Azeem-Hussaini |
+| Azeem Syed Hussaini | Azeem-Hussaini |
 | Nishchal Bhardwaj | Nishchal2309 |
 | Anannya Saha | anannyasaha |
 
