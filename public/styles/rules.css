@@ -102,7 +102,6 @@ position: relative;
 
 }
 h2{
-    background-color: aliceblue;
     text-align: center;
     text-decoration: double;
 }
@@ -112,6 +111,14 @@ li{
     font-size: medium;
 }
 
+#heading2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    text-shadow: rgb(112, 56, 10);
+    font-size: 40px;
+    box-shadow: 0px 9px 25px rgba(7, 3, 1, 0.7);
+    padding-bottom: 6px;
+}
 
 
 

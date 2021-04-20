@@ -24,6 +24,7 @@ header{
 
 .title{
     white-space:pre-line;
+    
 }
 
 .console{
@@ -42,9 +43,8 @@ position: relative;
 
 #chart{
     position: relative;
-    width: 850px;
-    margin: 10px auto;
-    color: white;
+        width: 850px;
+        margin: 10px auto;
     }
 
 .console a{
@@ -106,6 +106,7 @@ position: relative;
     width: 650px;
     margin: 10px auto;
     padding-top: 50px;
+    /*-webkit-perspective: 1000;*/
     
 }
 

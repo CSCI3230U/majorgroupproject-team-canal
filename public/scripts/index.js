@@ -10,20 +10,31 @@ window.onload=function(){
     const dealer = document.querySelector('#dealer');
     const startBtn = document.querySelector('#start');
     const resetBtn = document.querySelector('#reset');
+    const playerBtn = document.querySelector('#data');
 
 
 
 
     const tLine = new TimelineMax({ default: {ease: 'power1.out'} });
-    tLine.fromTo(center, 1, {height: "0%"}, {height: '80%'})
-        .fromTo(heading, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=1")
-        .fromTo(startBtn, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.5")
-        .fromTo(resetBtn, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.5")
-        .fromTo(player, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.3")
-        .fromTo(dealer, 0.5, {opacity:0, x:30}, {opacity:1, x:0}, "-=0.3")
-        .fromTo(".navbar", {opacity: 0}, { opacity: 1, duration: 0.6 })
+    tLine.fromTo(center, 1, {height: "0%"}, {height: '100%'})
+        .fromTo(heading, {opacity:0, x:50}, {opacity:2, x:0}, "-=0.95")
+        .fromTo(startBtn,  {opacity:0, x:40}, {opacity:2, x:0}, "-=0.55")
+        .fromTo(resetBtn, {opacity:0, x:40}, {opacity:2, x:0}, "-=0.55")
+        .fromTo(playerBtn,  {opacity:0, x:40}, {opacity:2, x:0}, "-=0.55")
+        .fromTo(player,  {opacity:0, x:40}, {opacity:2, x:0}, "-=0.4")
+        .fromTo(dealer,  {opacity:0, x:40}, {opacity:2, x:0}, "-=0.4")
+        .fromTo(".navbar", {opacity: 0}, { opacity: 1, duration: 0.65 });
 
+    center.addEventListener("mouseenter", (e) =>{
+        player.style.transform = "translateZ(100px)";
         
+
+    })
+
+    center.addEventListener("mouseleave", (e) =>{
+        player.style.transform = "translateZ(0px)";
+       
+    })    
 
 
 
