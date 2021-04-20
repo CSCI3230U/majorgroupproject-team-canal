@@ -1,4 +1,4 @@
-//golbal variables 
+//global variables 
 var resultsData = [];
 
 
@@ -290,6 +290,7 @@ window.onload=function(){
                 
                 isGameOver = true;
                 resultsData.push("W");
+                //Some Ajax, works some of the time, other times it doesnt
                 fetch('/win')
                 .then((response) => {
                     console.log(response);
