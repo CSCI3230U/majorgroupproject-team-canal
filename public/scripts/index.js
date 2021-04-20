@@ -25,17 +25,6 @@ window.onload=function(){
         .fromTo(dealer,  {opacity:0, x:40}, {opacity:2, x:0}, "-=0.4")
         .fromTo(".navbar", {opacity: 0}, { opacity: 1, duration: 0.65 });
 
-    center.addEventListener("mouseenter", (e) =>{
-        player.style.transform = "translateZ(100px)";
-        
-
-    })
-
-    center.addEventListener("mouseleave", (e) =>{
-        player.style.transform = "translateZ(0px)";
-       
-    })    
-
 
 
     let test = [3, 51, 23,17];
