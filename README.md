@@ -18,6 +18,24 @@ Before you submit your project, modify the following table to include everyone's
 | Nishchal Bhardwaj | Nishchal2309 |
 | Anannya Saha | anannyasaha |
 
+Main page
+
+![bj1](https://user-images.githubusercontent.com/55282391/127779936-41d3abd2-3c1e-45e0-b6f3-b98af44f0369.PNG)
+
+Rules page 
+
+![bj2](https://user-images.githubusercontent.com/55282391/127779996-75bed5b2-1010-4f27-b7ac-31b1c999d821.PNG)
+
+Game page
+
+![bj4](https://user-images.githubusercontent.com/55282391/127780078-00569d29-60cd-4cb0-abd2-3b61aedd2d96.PNG)
+
+
+Graphs
+![bj3](https://user-images.githubusercontent.com/55282391/127780045-4e63818c-8e75-41dc-a109-81fa036f861b.PNG)
+
+
+
 
 
 ## Overview
